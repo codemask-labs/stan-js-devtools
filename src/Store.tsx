@@ -1,7 +1,7 @@
 import { CircleX, Terminal } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
+import { StateTree } from './features/tree/StateTree'
 import { Alert, AlertDescription, AlertTitle, Button } from './lib/components'
-import { StoreItem } from './StoreItem'
 
 type StoreProps = {
     store: object
@@ -38,14 +38,8 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store: initialStore
                     <CircleX className="w-4 h-4 cursor-pointer" onClick={() => setIsStoreExpanded(false)} />
                 </div>
             </AlertTitle>
-            <AlertDescription>
-                {Object.entries(store).map(([key, value]) => (
-                    <StoreItem
-                        key={key}
-                        label={key}
-                        value={value}
-                    />
-                ))}
+            <AlertDescription className="mt-4">
+                <StateTree state={store} onStateChange={setStore} />
                 <Button className="mt-4" onClick={() => updateStore(store)}>
                     Save
                 </Button>

@@ -1,6 +1,6 @@
 {
     "name": "stan-js-devtools",
-    "private": true,
+    "private": false,
     "version": "1.0.0-alpha",
     "type": "module",
     "exports": {
@@ -21,6 +21,8 @@
         "class-variance-authority": "0.7.0",
         "clsx": "2.1.1",
         "lucide-react": "0.417.0",
+        "object-path-immutable": "^4.1.2",
+        "react-arborist": "^3.4.0",
         "tailwind-merge": "2.4.0",
         "tailwindcss-animate": "1.0.7"
     },
@@ -29,19 +31,16 @@
         "react-dom": ">=18"
     },
     "devDependencies": {
+        "@types/node": "22.0.0",
         "@types/react": "18.3.3",
         "@types/react-dom": "18.3.0",
-        "@types/node": "22.0.0",
-        "@typescript-eslint/eslint-plugin": "7.18.0",
-        "@typescript-eslint/parser": "7.18.0",
         "autoprefixer": "10.4.19",
         "dprint": "0.47.2",
         "eslint": "9.8.0",
-        "eslint-plugin-react-hooks": "4.6.2",
-        "eslint-plugin-react-refresh": "0.4.9",
+        "eslint-config-codemask": "^2.0.0-beta.13",
         "postcss": "8.4.40",
         "tailwindcss": "3.4.7",
-        "typescript": "5.5.4",
-        "tsup": "8.2.3"
+        "tsup": "8.2.3",
+        "typescript": "5.5.4"
     }
 }
