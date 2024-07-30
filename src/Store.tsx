@@ -1,32 +1,21 @@
 import { CircleX, Terminal } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { Alert, AlertDescription, AlertTitle, Button } from './lib/components'
-import { Actions } from './lib/types'
-import { getActionKey } from './lib/utils'
 import { StoreItem } from './StoreItem'
 
 type StoreProps = {
     store: object
     storeNumber: number
-    actions: Actions
+    updateStore: (store: object) => void
 }
 
-export const Store: React.FunctionComponent<StoreProps> = ({ store: initialStore, storeNumber, actions }) => {
+export const Store: React.FunctionComponent<StoreProps> = ({ store: initialStore, storeNumber, updateStore }) => {
     const [isStoreExpanded, setIsStoreExpanded] = useState(false)
-    const [isInvalid, setIsInvalid] = useState(false)
     const [store, setStore] = useState(initialStore)
-    const [edited, setEdited] = useState<Array<string>>([])
 
     useEffect(() => {
         setStore(initialStore)
     }, [initialStore])
-
-    const handleSave = () => {
-        edited.forEach(key => {
-            actions[getActionKey(key)]?.(store[key as keyof typeof store])
-        })
-        setEdited([])
-    }
 
     if (!isStoreExpanded) {
         return (
@@ -55,14 +44,9 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store: initialStore
                         key={key}
                         label={key}
                         value={value}
-                        update={value => {
-                            setStore(prev => ({ ...prev, [key]: value }))
-                            setEdited(prev => [...prev, key])
-                        }}
-                        setDisableSave={setIsInvalid}
                     />
                 ))}
-                <Button disabled={isInvalid} className="mt-4" onClick={handleSave}>
+                <Button className="mt-4" onClick={() => updateStore(store)}>
                     Save
                 </Button>
             </AlertDescription>

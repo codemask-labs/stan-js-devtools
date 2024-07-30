@@ -33,7 +33,7 @@ export const Devtools: React.FunctionComponent = () => {
                                 key={index}
                                 storeNumber={index}
                                 store={store.store}
-                                actions={store.actions}
+                                updateStore={store.updateStore}
                             />
                         ))}
                     </React.Fragment>
