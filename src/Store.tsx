@@ -22,7 +22,9 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store: initialStore
     }, [initialStore])
 
     const handleSave = () => {
-        actions[getActionKey('setStore')]?.(store)
+        edited.forEach(key => {
+            actions[getActionKey(key)]?.(store[key as keyof typeof store])
+        })
         setEdited([])
     }
 
