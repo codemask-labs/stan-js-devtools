@@ -1,0 +1,47 @@
+{
+    "name": "stan-js-devtools",
+    "private": true,
+    "version": "1.0.0-alpha",
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "main": "./dist/index.cjs",
+    "types": "./dist/index.d.ts",
+    "files": ["dist"],
+    "scripts": {
+        "build": "tsup"
+    },
+    "dependencies": {
+        "@radix-ui/react-label": "2.1.0",
+        "@radix-ui/react-slot": "1.1.0",
+        "class-variance-authority": "0.7.0",
+        "clsx": "2.1.1",
+        "lucide-react": "0.417.0",
+        "tailwind-merge": "2.4.0",
+        "tailwindcss-animate": "1.0.7"
+    },
+    "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18"
+    },
+    "devDependencies": {
+        "@types/react": "18.3.3",
+        "@types/react-dom": "18.3.0",
+        "@types/node": "22.0.0",
+        "@typescript-eslint/eslint-plugin": "7.18.0",
+        "@typescript-eslint/parser": "7.18.0",
+        "autoprefixer": "10.4.19",
+        "dprint": "0.47.2",
+        "eslint": "9.8.0",
+        "eslint-plugin-react-hooks": "4.6.2",
+        "eslint-plugin-react-refresh": "0.4.9",
+        "postcss": "8.4.40",
+        "tailwindcss": "3.4.7",
+        "typescript": "5.5.4",
+        "tsup": "8.2.3"
+    }
+}
