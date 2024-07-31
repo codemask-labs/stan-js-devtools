@@ -15,15 +15,18 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store, storeNumber 
 
     useEffect(() => {
         setState(store.store)
-    }, [store.store])
+    }, [store])
 
     if (!isStoreExpanded) {
         return (
-            <Alert onClick={() => setIsStoreExpanded(true)} className="cursor-pointer max-w-md">
+            <Alert className="max-w-md">
                 <Terminal className="h-4 w-4" />
                 <AlertTitle>Store no. {storeNumber}</AlertTitle>
-                <AlertDescription className="tracking-wider px-4">
-                    <pre className="text-ellipsis overflow-hidden">
+                <AlertDescription className="tracking-wider px-4 pt-4">
+                    <pre
+                        className="cursor-pointer text-ellipsis overflow-hidden hover:bg-gray-100 transition-colors p-2 rounded-md"
+                        onClick={() => setIsStoreExpanded(true)}
+                    >
                         {JSON.stringify(state, null, 2)}
                     </pre>
                 </AlertDescription>

@@ -1,9 +1,9 @@
 export type Primitive = string | number | boolean | undefined | null
 
-export type TreeNode = {
+export type TreeNode<T = object | Primitive | Array<Primitive>> = {
     id: string
     key: string
-    value: object | Primitive | Array<Primitive>
+    value: T
     children?: Array<TreeNode>
     isReadonly?: boolean
 }

@@ -29,7 +29,7 @@ export const InlineEditInput: FunctionComponent<InlineEditInputProps> = ({ node,
 
     return (
         <Input
-            className="inline-block"
+            className="inline-block h-5 w-auto"
             ref={inputRef}
             type="text"
             defaultValue={JSON.stringify(value)}

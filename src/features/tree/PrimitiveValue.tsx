@@ -17,8 +17,9 @@ export const PrimitiveValue: FunctionComponent<PrimitiveValueProps> = ({ node, v
                 ['text-blue-500']: typeof value === 'number',
                 ['text-red-500']: typeof value === 'boolean',
                 ['text-yellow-500']: typeof value === 'undefined' || value === null,
+                ['hover:bg-gray-100 transition-colors p-1 rounded-md cursor-pointer']: node.isEditable,
             })}
-            onDoubleClick={() => node.isEditable && node.edit()}
+            onClick={() => node.isEditable && node.edit()}
         >
             {typeof value === 'string' && `"${value}"`}
             {typeof value === 'number' && value.toString()}

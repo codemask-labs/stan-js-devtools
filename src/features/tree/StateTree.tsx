@@ -22,7 +22,7 @@ export const StateTree: FunctionComponent<StateTreeProps> = ({ state, onStateCha
         name,
     }: HandleDataChangeProps) => {
         const path = id.split('-').slice(1)
-        const newValue = name === '' ? undefined : JSON.parse(name)
+        const newValue = name === '' ? undefined : typeof name === 'string' ? JSON.parse(name) : name
 
         onStateChange(objectPath.set(state, path, newValue))
     }
