@@ -1,12 +1,12 @@
 import './index.css'
+import { Favicon } from 'lib/components'
+import { getStores } from 'lib/utils'
 import { CircleX } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { Favicon } from './lib/components'
-import { getStores } from './lib/utils'
 import { Store } from './Store'
 
 export const Devtools: React.FunctionComponent = () => {
-    const [isOpened, setIsOpened] = useState(false)
+    const [isOpened, setIsOpened] = useState(true)
     const [stores, setStores] = useState(getStores())
 
     useEffect(() => {

@@ -27,7 +27,7 @@ export const StateTree: FunctionComponent<StateTreeProps> = ({ state, onStateCha
     }
 
     return (
-        <Tree data={treeify(state).children} onRename={handleDataChange}>
+        <Tree width={512} data={treeify(state).children} onRename={handleDataChange}>
             {Node}
         </Tree>
     )

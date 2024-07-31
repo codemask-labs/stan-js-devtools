@@ -21,7 +21,11 @@
             "es2022",
             "dom",
             "dom.iterable"
-        ]
+        ],
+        "baseUrl": "./src",
+        "paths": {
+            "lib/*": ["./lib/*"]
+        }
     },
     "include": [
         "src"

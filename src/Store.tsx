@@ -1,7 +1,7 @@
+import { Alert, AlertDescription, AlertTitle, Button } from 'lib/components'
 import { CircleX, Terminal } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { StateTree } from './features/tree/StateTree'
-import { Alert, AlertDescription, AlertTitle, Button } from './lib/components'
 
 type StoreProps = {
     store: object
@@ -19,18 +19,20 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store: initialStore
 
     if (!isStoreExpanded) {
         return (
-            <Alert onClick={() => setIsStoreExpanded(true)} className="cursor-pointer">
+            <Alert onClick={() => setIsStoreExpanded(true)} className="cursor-pointer max-w-md">
                 <Terminal className="h-4 w-4" />
                 <AlertTitle>Store no. {storeNumber}</AlertTitle>
-                <AlertDescription className="tracking-wider">
-                    {JSON.stringify(store)}
+                <AlertDescription className="tracking-wider px-4">
+                    <pre className="text-ellipsis overflow-hidden">
+                        {JSON.stringify(store, null, 2)}
+                    </pre>
                 </AlertDescription>
             </Alert>
         )
     }
 
     return (
-        <Alert>
+        <Alert className="max-w-xl">
             <Terminal className="h-4 w-4" />
             <AlertTitle>
                 <div className="flex items-center gap-2">
