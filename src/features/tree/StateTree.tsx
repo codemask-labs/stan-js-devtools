@@ -9,15 +9,17 @@ type StateTreeProps = {
     onStateChange: (state: object) => void
 }
 
+type HandleDataChangeProps = {
+    id: string
+    name: string
+    node: NodeApi<TreeNode>
+}
+
 export const StateTree: FunctionComponent<StateTreeProps> = ({ state, onStateChange }) => {
     const handleDataChange = ({
         id,
         name,
-    }: {
-        id: string
-        name: string
-        node: NodeApi<TreeNode>
-    }) => {
+    }: HandleDataChangeProps) => {
         const path = id.split('-').slice(1)
         const newValue = name === '' ? undefined : JSON.parse(name)
 

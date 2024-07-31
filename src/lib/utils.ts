@@ -2,9 +2,12 @@ import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { StoreEntry } from './types'
 
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
-
-export const getStores = (): Array<StoreEntry> => {
-    // @ts-ignore
-    return { ...window['__stan-js__'] }
+declare global {
+    interface Window {
+        '__stan-js__': Record<number, StoreEntry>
+    }
 }
+
+export const cn = (...inputs: Array<ClassValue>) => twMerge(clsx(inputs))
+
+export const getStores = () => ({ ...window['__stan-js__'] })

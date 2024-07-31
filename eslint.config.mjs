@@ -17,6 +17,7 @@ export default [
             'react/hook-use-state': 'off',
             '@typescript-eslint/naming-convention': 'off',
             '@typescript-eslint/no-floating-promises': 'off',
+            '@typescript-eslint/indent': 'off',
         },
     },
     {

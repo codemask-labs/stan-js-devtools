@@ -13,7 +13,9 @@
     "types": "./dist/index.d.ts",
     "files": ["dist"],
     "scripts": {
-        "build": "tsup"
+        "build": "tsup",
+        "lint": "eslint src && dprint check",
+        "lint:fix": "eslint src --fix && dprint fmt"
     },
     "dependencies": {
         "@radix-ui/react-label": "2.1.0",
@@ -21,8 +23,8 @@
         "class-variance-authority": "0.7.0",
         "clsx": "2.1.1",
         "lucide-react": "0.417.0",
-        "object-path-immutable": "^4.1.2",
-        "react-arborist": "^3.4.0",
+        "object-path-immutable": "4.1.2",
+        "react-arborist": "3.4.0",
         "tailwind-merge": "2.4.0",
         "tailwindcss-animate": "1.0.7"
     },
@@ -37,7 +39,7 @@
         "autoprefixer": "10.4.19",
         "dprint": "0.47.2",
         "eslint": "9.8.0",
-        "eslint-config-codemask": "^2.0.0-beta.13",
+        "eslint-config-codemask": "2.0.0-beta.13",
         "postcss": "8.4.40",
         "tailwindcss": "3.4.7",
         "tsup": "8.2.3",
