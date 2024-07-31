@@ -3,6 +3,7 @@ import { Favicon } from 'lib/components'
 import { getStores } from 'lib/utils'
 import { CircleX } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
+import { TooltipProvider } from './lib/components/ui/tooltip'
 import { Store } from './Store'
 
 export const Devtools: React.FunctionComponent = () => {
@@ -18,26 +19,27 @@ export const Devtools: React.FunctionComponent = () => {
     }, [])
 
     return (
-        <div className="fixed bottom-4 left-4">
-            {!isOpened
-                ? (
-                    <div className="cursor-pointer" onClick={() => setIsOpened(true)}>
-                        <Favicon />
-                    </div>
-                )
-                : (
-                    <React.Fragment>
-                        <CircleX className="ml-auto translate-x-6 cursor-pointer" onClick={() => setIsOpened(false)} />
-                        {Object.values(stores).map((store, index) => (
-                            <Store
-                                key={index}
-                                storeNumber={index}
-                                store={store.store}
-                                updateStore={store.updateStore}
-                            />
-                        ))}
-                    </React.Fragment>
-                )}
-        </div>
+        <TooltipProvider>
+            <div className="fixed bottom-4 left-4">
+                {!isOpened
+                    ? (
+                        <div className="cursor-pointer" onClick={() => setIsOpened(true)}>
+                            <Favicon />
+                        </div>
+                    )
+                    : (
+                        <React.Fragment>
+                            <CircleX className="ml-auto translate-x-6 cursor-pointer" onClick={() => setIsOpened(false)} />
+                            {Object.values(stores).map((store, index) => (
+                                <Store
+                                    key={index}
+                                    storeNumber={index}
+                                    store={store}
+                                />
+                            ))}
+                        </React.Fragment>
+                    )}
+            </div>
+        </TooltipProvider>
     )
 }
