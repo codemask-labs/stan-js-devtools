@@ -6,11 +6,13 @@
     "exports": {
         ".": {
             "import": "./dist/index.js",
-            "require": "./dist/index.cjs"
+            "require": "./dist/index.cjs",
+            "react-native": "./dist/rn/index.cjs"
         }
     },
     "main": "./dist/index.cjs",
     "types": "./dist/index.d.ts",
+    "react-native": "./dist/rn/index.cjs",
     "files": ["dist"],
     "scripts": {
         "build": "tsup",
