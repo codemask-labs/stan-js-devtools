@@ -1,54 +1,57 @@
 {
-    "name": "stan-js-devtools",
-    "private": false,
-    "version": "1.0.0-alpha",
-    "type": "module",
-    "exports": {
-        ".": {
-            "import": "./dist/index.js",
-            "require": "./dist/index.cjs",
-            "react-native": "./dist/rn/index.cjs"
-        }
+  "name": "stan-js-devtools",
+  "private": false,
+  "version": "1.0.1-alpha",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "react-native": "./dist/rn/index.cjs"
     },
-    "main": "./dist/index.cjs",
-    "types": "./dist/index.d.ts",
-    "react-native": "./dist/rn/index.cjs",
-    "files": ["dist"],
-    "scripts": {
-        "build": "tsup",
-        "lint": "eslint src && dprint check",
-        "lint:fix": "eslint src --fix && dprint fmt"
-    },
-    "dependencies": {
-        "@radix-ui/react-label": "2.1.0",
-        "@radix-ui/react-popover": "^1.1.1",
-        "@radix-ui/react-slot": "1.1.0",
-        "@radix-ui/react-tooltip": "^1.1.2",
-        "class-variance-authority": "0.7.0",
-        "clsx": "2.1.1",
-        "date-fns": "^3.6.0",
-        "lucide-react": "0.417.0",
-        "object-path-immutable": "4.1.2",
-        "react-arborist": "3.4.0",
-        "react-day-picker": "8.10.1",
-        "tailwind-merge": "2.4.0",
-        "tailwindcss-animate": "1.0.7"
-    },
-    "peerDependencies": {
-        "react": ">=18",
-        "react-dom": ">=18"
-    },
-    "devDependencies": {
-        "@types/node": "22.0.0",
-        "@types/react": "18.3.3",
-        "@types/react-dom": "18.3.0",
-        "autoprefixer": "10.4.19",
-        "dprint": "0.47.2",
-        "eslint": "9.8.0",
-        "eslint-config-codemask": "2.0.0-beta.13",
-        "postcss": "8.4.40",
-        "tailwindcss": "3.4.7",
-        "tsup": "8.2.3",
-        "typescript": "5.5.4"
-    }
+    "./index.css": "./dist/index.css"
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "react-native": "./dist/rn/index.cjs",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src && dprint check",
+    "lint:fix": "eslint src --fix && dprint fmt"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "1.2.0",
+    "@radix-ui/react-label": "2.1.0",
+    "@radix-ui/react-popover": "1.1.1",
+    "@radix-ui/react-slot": "1.1.0",
+    "@radix-ui/react-tooltip": "1.1.2",
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.1.1",
+    "date-fns": "3.6.0",
+    "lucide-react": "0.418.0",
+    "object-path-immutable": "4.1.2",
+    "react-arborist": "3.4.0",
+    "react-day-picker": "8.10.1",
+    "react-resizable-panels": "^2.0.23",
+    "tailwind-merge": "2.4.0",
+    "tailwindcss-animate": "1.0.7"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "22.0.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.19",
+    "dprint": "0.47.2",
+    "eslint": "9.8.0",
+    "eslint-config-codemask": "2.0.0-beta.13",
+    "postcss": "8.4.40",
+    "tailwindcss": "3.4.7",
+    "tsup": "8.2.3",
+    "typescript": "5.5.4"
+  }
 }

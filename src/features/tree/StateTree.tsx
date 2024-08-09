@@ -7,6 +7,7 @@ import { treeify, TreeNode } from './utils'
 type StateTreeProps = {
     state: object
     getters: Array<string>
+    height: number
     onStateChange: (state: object) => void
 }
 
@@ -16,7 +17,7 @@ type HandleDataChangeProps = {
     node: NodeApi<TreeNode>
 }
 
-export const StateTree: FunctionComponent<StateTreeProps> = ({ state, onStateChange, getters }) => {
+export const StateTree: FunctionComponent<StateTreeProps> = ({ state, onStateChange, getters, height }) => {
     const handleDataChange = ({
         id,
         name,
@@ -28,7 +29,14 @@ export const StateTree: FunctionComponent<StateTreeProps> = ({ state, onStateCha
     }
 
     return (
-        <Tree width={512} data={treeify(state, getters).children} onRename={handleDataChange} disableEdit={node => node.isReadonly === true}>
+        <Tree
+            width="100%"
+            height={height}
+            className="h-full"
+            data={treeify(state, getters).children}
+            onRename={handleDataChange}
+            disableEdit={node => node.isReadonly === true}
+        >
             {Node}
         </Tree>
     )

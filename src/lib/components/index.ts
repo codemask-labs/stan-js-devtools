@@ -1,5 +1,7 @@
 export * from './Favicon'
+export * from './ui/accordion'
 export * from './ui/alert'
 export * from './ui/button'
 export * from './ui/input'
 export * from './ui/label'
+export * from './ui/resizable'

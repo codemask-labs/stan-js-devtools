@@ -1,7 +1,12 @@
+import { cn } from 'lib/utils'
 import React from 'react'
 
-export const Favicon = () => (
-    <svg className="w-16 h-16" width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+type FaviconProps = {
+    className?: string
+}
+
+export const Favicon: React.FunctionComponent<FaviconProps> = ({ className }) => (
+    <svg className={cn('w-16 h-16', className)} width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M33.8569 29.6207C33.0153 27.4409 30.8764 26.0705 28.7902 25.0157C26.9522 24.0836 24.9565 23.2566 22.8995 23.3998C20.6349 23.5547 18.5866 24.8842 17.0526 26.5585C14.3001 29.5623 12.956 33.9072 13.8969 37.8724C14.8377 41.8375 18.1921 45.2153 22.2186 45.8377C23.2326 42.5563 24.3867 39.2808 26.21 36.3675C28.0334 33.4543 30.5872 30.9035 33.8539 29.6207H33.8569Z"
             fill="#6B3519"
