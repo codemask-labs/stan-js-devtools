@@ -74,7 +74,7 @@ export const Devtools: React.FunctionComponent = () => {
                                             stan-js devtools
                                         </Label>
                                     </div>
-                                    <Button size="icon">
+                                    <Button size="icon" onClick={() => setIsOpened(false)}>
                                         <Minus className="h-4 w-4" />
                                     </Button>
                                 </div>
