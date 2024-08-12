@@ -12,7 +12,7 @@ export const Node: FunctionComponent<NodeRendererProps<TreeNode>> = ({ node, sty
     const hasSomeChildren = node.children && node.children.length > 0
 
     return (
-        <pre style={style} className={cn('text-gray-800', { ['opacity-50']: node.data.isReadonly })}>
+        <pre style={style} className={cn('text-gray-800 text-left', { ['opacity-50']: node.data.isReadonly })}>
             {node.data.isReadonly && (
                 <Tooltip delayDuration={200}>
                     <TooltipPortal>

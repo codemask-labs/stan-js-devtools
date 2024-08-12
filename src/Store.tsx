@@ -23,12 +23,12 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store, storeNumber,
                 'bg-gray-100': isActive,
             })}
         >
-            <AlertTitle>
+            <AlertTitle className="text-left">
                 Store no. {storeNumber}
             </AlertTitle>
             <AlertDescription className="tracking-wider px-4 pt-4">
                 <pre
-                    className="cursor-pointer text-ellipsis overflow-hidden hover:bg-gray-100 transition-colors p-2 rounded-md"
+                    className="cursor-pointer text-ellipsis overflow-hidden hover:bg-gray-100 transition-colors p-2 rounded-md text-left"
                     onClick={open}
                 >
                     {JSON.stringify(state, null, 2)}
