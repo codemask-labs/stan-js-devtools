@@ -1,7 +1,7 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.6-alpha",
+    "version": "1.0.12-alpha",
     "type": "module",
     "exports": {
         ".": {
@@ -18,7 +18,7 @@
     "files": ["build", "dist", "expo-module.config.json", "src"],
     "scripts": {
         "build": "tsup",
-        "build:web": "cd ./src/expo/webui && bun expo export -p web --output-dir ../../../dist",
+        "build:web": "cd ./expo-web && bun run build",
         "build:all": "bun run build && bun run build:web",
         "lint": "eslint src && dprint check",
         "lint:fix": "eslint src --fix && dprint fmt"

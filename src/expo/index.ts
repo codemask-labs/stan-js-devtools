@@ -1,18 +1,39 @@
 import { useDevToolsPluginClient } from 'expo/devtools'
+import { StoreEntry } from 'lib/types'
 import { useEffect } from 'react'
 
 export const Devtools = () => {
     const client = useDevToolsPluginClient('expo-stan-js-devtools')
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            // @ts-expect-error type not found
-            const stores = (globalThis['__stan-js__'] ?? []) as Array<StoreEntry>
+        if (!client) {
+            return
+        }
 
-            client?.sendMessage('refresh-stores', { stores: stores.map(store => JSON.stringify(store.store)) })
-        }, 1000)
+        // @ts-expect-error type not found
+        const stores = (globalThis['__stan-js__'] ?? []) as Array<StoreEntry>
 
-        return () => clearInterval(intervalId)
+        client.addMessageListener('loaded', () => {
+            client.sendMessage(
+                'load',
+                JSON.stringify(stores.map((storeEntry, index) => {
+                    storeEntry.listen(() => {
+                        client.sendMessage('listen', JSON.stringify({ store: storeEntry.store, index }))
+                    })
+
+                    return {
+                        store: storeEntry.store,
+                        getters: storeEntry.getters,
+                    }
+                })),
+            )
+        })
+
+        client.addMessageListener('update', (data: string) => {
+            const { store, index } = JSON.parse(data) as { store: object; index: number }
+
+            stores[index]?.updateStore(store)
+        })
     }, [client])
 
     return null

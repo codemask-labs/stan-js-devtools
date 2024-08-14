@@ -15,11 +15,13 @@ export const Devtools: React.FunctionComponent = () => {
     const editor = activeStore !== undefined ? stores[activeStore] : undefined
 
     useEffect(() => {
-        Object.values(stores).forEach(store =>
-            store.listen(() => {
-                setStores(getStores())
+        setTimeout(() => {
+            Object.values(getStores()).forEach(store => {
+                store.listen(() => {
+                    setStores(getStores())
+                })
             })
-        )
+        }, 500)
 
         setInterval(() => {
             setStores(getStores())
