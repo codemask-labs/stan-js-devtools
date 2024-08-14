@@ -1,6 +1,6 @@
-import { Input } from 'lib/components'
 import React, { FunctionComponent, useRef } from 'react'
 import { NodeApi } from 'react-arborist'
+import { Input } from '../../lib/components'
 import { TreeNode } from './utils'
 
 type InlineEditInputProps = {

@@ -1,22 +1,25 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.3-alpha",
+    "version": "1.0.6-alpha",
     "type": "module",
     "exports": {
         ".": {
-            "import": "./dist/index.js",
-            "require": "./dist/index.cjs",
-            "react-native": "./dist/rn/index.cjs"
+            "import": "./build/index.js",
+            "require": "./build/index.cjs",
+            "react-native": "./build/rn/index.cjs"
         },
-        "./index.css": "./dist/index.css"
+        "./index.css": "./build/index.css"
     },
-    "main": "./dist/index.cjs",
-    "types": "./dist/index.d.ts",
-    "react-native": "./dist/rn/index.cjs",
-    "files": ["dist"],
+    "main": "./build/index.cjs",
+    "types": "./build/index.d.ts",
+    "react-native": "./build/expo/index.cjs",
+    "source": "src/index",
+    "files": ["build", "dist", "expo-module.config.json", "src"],
     "scripts": {
         "build": "tsup",
+        "build:web": "cd ./src/expo/webui && bun expo export -p web --output-dir ../../../dist",
+        "build:all": "bun run build && bun run build:web",
         "lint": "eslint src && dprint check",
         "lint:fix": "eslint src --fix && dprint fmt"
     },
@@ -35,7 +38,8 @@
         "react-day-picker": "8.10.1",
         "react-resizable-panels": "^2.0.23",
         "tailwind-merge": "2.4.0",
-        "tailwindcss-animate": "1.0.7"
+        "tailwindcss-animate": "1.0.7",
+        "expo": "51.0.26"
     },
     "peerDependencies": {
         "react": ">=18",

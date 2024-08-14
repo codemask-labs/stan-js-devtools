@@ -1,7 +1,7 @@
-import { Alert, AlertDescription, AlertTitle } from 'lib/components'
-import { cn } from 'lib/utils'
 import React, { useEffect, useState } from 'react'
+import { Alert, AlertDescription, AlertTitle } from './lib/components'
 import { StoreEntry } from './lib/types'
+import { cn } from './lib/utils'
 
 type StoreProps = {
     store: StoreEntry

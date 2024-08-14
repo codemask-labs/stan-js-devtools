@@ -1,10 +1,10 @@
-import { TreeNode } from 'features/tree/utils'
-import { Calendar } from 'lib/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from 'lib/components/ui/popover'
-import { TimePickerDemo } from 'lib/components/ui/time-picker-demo'
-import { cn } from 'lib/utils'
 import React, { FunctionComponent, useState } from 'react'
 import { NodeApi } from 'react-arborist'
+import { Calendar } from '../../lib/components/ui/calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '../../lib/components/ui/popover'
+import { TimePickerDemo } from '../../lib/components/ui/time-picker-demo'
+import { cn } from '../../lib/utils'
+import { TreeNode } from './utils'
 
 type DateValueProps = {
     node: NodeApi<TreeNode<Date>>

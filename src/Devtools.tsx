@@ -1,10 +1,10 @@
 import './index.css'
-import { Editor } from 'features/editor/Editor'
-import { Button, Favicon, Label, ResizableHandle, ResizablePanel, ResizablePanelGroup } from 'lib/components'
-import { getStores } from 'lib/utils'
 import { Minus } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
+import { Editor } from './features/editor'
+import { Button, Favicon, Label, ResizableHandle, ResizablePanel, ResizablePanelGroup } from './lib/components'
 import { TooltipProvider } from './lib/components/ui/tooltip'
+import { getStores } from './lib/utils'
 import { Store } from './Store'
 
 export const Devtools: React.FunctionComponent = () => {
