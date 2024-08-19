@@ -1,8 +1,8 @@
+import { StateTree } from 'features/tree'
+import { Button } from 'lib/components'
+import { StoreEntry } from 'lib/types'
 import { CircleX } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
-import { Button } from '../../lib/components'
-import { StoreEntry } from '../../lib/types'
-import { StateTree } from '../tree/StateTree'
 
 type EditorProps = {
     storeNumber: number

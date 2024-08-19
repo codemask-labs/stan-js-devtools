@@ -1,6 +1,6 @@
+import { cn } from 'lib/utils'
 import React, { FunctionComponent } from 'react'
 import { NodeApi } from 'react-arborist'
-import { cn } from '../../lib/utils'
 import { InlineEditInput } from './InlineEditInput'
 import { Primitive, TreeNode } from './utils'
 

@@ -1,7 +1,7 @@
 import { Input } from './input'
 
+import { cn } from 'lib/utils'
 import React from 'react'
-import { cn } from '../../utils'
 import {
     getArrowByType,
     getDateByType,
