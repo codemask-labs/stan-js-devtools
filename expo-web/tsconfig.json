@@ -24,15 +24,15 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "lib/*": ["./src/lib/*"],
-            "features/*": ["./src/features/*"]
+            "lib/*": ["../src/lib/*"],
+            "features/*": ["../src/features/*"]
         }
     },
     "include": [
-        "src"
+        "src",
+        "vite.config.ts"
     ],
     "exclude": [
-        "node_modules",
-        "dist"
+        "node_modules"
     ]
 }

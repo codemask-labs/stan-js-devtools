@@ -20,7 +20,4 @@ export default [
             '@typescript-eslint/indent': 'off',
         },
     },
-    {
-        ignores: ['src/**/*.test.{ts,tsx}'],
-    },
 ]

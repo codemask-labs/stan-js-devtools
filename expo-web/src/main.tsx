@@ -1,7 +1,14 @@
 import { useDevToolsPluginClient } from 'expo/devtools'
+import { StoreEntry } from 'lib/types'
 import React, { useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Devtools } from '../../src/Devtools'
+
+declare global {
+    interface Window {
+        '__stan-js__': Record<number, StoreEntry>
+    }
+}
 
 const App = () => {
     const client = useDevToolsPluginClient('expo-stan-js')
@@ -13,9 +20,9 @@ const App = () => {
 
         client.sendMessage('loaded', true)
         client.addMessageListener('load', data => {
-            const stores = JSON.parse(data)
+            const stores = JSON.parse(data) as Array<StoreEntry>
 
-            globalThis['__stan-js__'] = stores.map(({ store, getters }, index) => ({
+            window['__stan-js__'] = stores.map(({ store, getters }, index) => ({
                 store,
                 getters,
                 updateStore: state => {
@@ -24,9 +31,13 @@ const App = () => {
                 listen: callback => {
                     client.addMessageListener('listen', data => {
                         const { store, index } = JSON.parse(data)
+                        const storeEntry = window['__stan-js__'][index]
 
-                        globalThis['__stan-js__'][index].store = store
+                        if (!storeEntry) {
+                            return
+                        }
 
+                        storeEntry.store = store
                         callback()
                     })
                 },
@@ -37,4 +48,4 @@ const App = () => {
     return <Devtools />
 }
 
-createRoot(document.getElementById('root')).render(<App />)
+createRoot(document.getElementById('root')!).render(<App />)
