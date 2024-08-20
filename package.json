@@ -1,7 +1,7 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.12-alpha",
+    "version": "1.0.13-alpha",
     "type": "module",
     "exports": {
         ".": {
