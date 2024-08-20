@@ -19,14 +19,14 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store, storeNumber,
 
     return (
         <Alert
-            className={cn('w-full overflow-scroll', {
+            className={cn('w-full flex flex-col', {
                 'bg-gray-100': isActive,
             })}
         >
             <AlertTitle className="text-left">
                 Store no. {storeNumber}
             </AlertTitle>
-            <AlertDescription className="tracking-wider px-4 pt-4">
+            <AlertDescription className="tracking-wider overflow-y-auto px-4 pt-4">
                 <pre
                     className="cursor-pointer text-ellipsis overflow-hidden hover:bg-gray-100 transition-colors p-2 rounded-md text-left"
                     onClick={open}

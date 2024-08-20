@@ -80,7 +80,7 @@ export const Devtools: React.FunctionComponent = () => {
                                     </Button>
                                 </div>
                                 <ResizablePanelGroup className="resize flex-grow" direction="horizontal">
-                                    <ResizablePanel className="px-4 pb-4 grid grid-cols-1 gap-4">
+                                    <ResizablePanel className="px-4 pb-4 grid grid-cols-1 gap-4 auto-rows-fr">
                                         {Object.values(stores).map((store, index) => (
                                             <Store
                                                 key={index}
@@ -95,7 +95,7 @@ export const Devtools: React.FunctionComponent = () => {
                                     <ResizablePanel>
                                         {editor && (
                                             <Editor
-                                                storeEntry={editor}
+                                                storeEntry={{ ...editor }}
                                                 close={() => setActiveStore(undefined)}
                                                 storeNumber={activeStore ?? 0}
                                             />
