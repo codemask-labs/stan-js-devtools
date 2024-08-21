@@ -14,12 +14,20 @@ export const Devtools: React.FunctionComponent = () => {
     const editor = activeStore !== undefined ? stores[activeStore] : undefined
 
     useEffect(() => {
-        setTimeout(() => {
-            Object.values(getStores()).forEach(store => {
+        const intervalId = setInterval(() => {
+            const stores = Object.values(getStores())
+
+            stores.forEach(store => {
                 store.listen(() => {
                     setStores(getStores())
                 })
             })
+
+            setStores(stores)
+
+            if (stores.length !== 0) {
+                clearInterval(intervalId)
+            }
         }, 500)
     }, [])
 

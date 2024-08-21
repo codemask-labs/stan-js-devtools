@@ -1,7 +1,7 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.16-alpha",
+    "version": "1.0.19-alpha",
     "description": "Devtools for stan-js",
     "keywords": [
         "state",
