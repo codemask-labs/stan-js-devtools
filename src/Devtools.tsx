@@ -21,10 +21,6 @@ export const Devtools: React.FunctionComponent = () => {
                 })
             })
         }, 500)
-
-        setInterval(() => {
-            setStores(getStores())
-        }, 1000)
     }, [])
 
     const handleMouseDown: React.MouseEventHandler<HTMLDivElement> = (
