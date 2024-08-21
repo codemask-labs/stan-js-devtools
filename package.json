@@ -1,7 +1,7 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.15-alpha",
+    "version": "1.0.16-alpha",
     "description": "Devtools for stan-js",
     "keywords": [
         "state",
@@ -30,7 +30,7 @@
     "types": "./build/index.d.ts",
     "react-native": "./build/expo/index.cjs",
     "source": "src/index",
-    "files": ["build", "dist", "expo-module.config.json", "src"],
+    "files": ["build", "dist", "expo-module.config.json"],
     "scripts": {
         "build": "tsup",
         "build:web": "cd ./expo-web && bun run build",
