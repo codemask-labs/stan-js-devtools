@@ -13,7 +13,7 @@
 
 ## 📺 Preview
 
-<img src="./assets/preview.png" />
+<img src="https://github.com/codemask-labs/stan-js-devtools/raw/main/assets/preview.png" />
 
 ## 📦 Installation
 

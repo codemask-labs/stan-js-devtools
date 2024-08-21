@@ -1,7 +1,22 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.14-alpha",
+    "version": "1.0.15-alpha",
+    "description": "Devtools for stan-js",
+    "keywords": [
+        "state",
+        "react",
+        "store",
+        "context",
+        "rerenders",
+        "typescript",
+        "intellisense"
+    ],
+    "homepage": "https://codemask-labs.github.io/stan-js/guides/devtools/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/codemask-labs/stan-js-devtools.git"
+    },
     "type": "module",
     "exports": {
         ".": {
