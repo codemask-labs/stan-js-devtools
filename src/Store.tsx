@@ -1,6 +1,6 @@
 import { Alert, AlertDescription, AlertTitle } from 'lib/components'
 import { StoreEntry } from 'lib/types'
-import { cn } from 'lib/utils'
+import { cn, numberToEmoji } from 'lib/utils'
 import React, { useEffect, useState } from 'react'
 
 type StoreProps = {
@@ -24,7 +24,7 @@ export const Store: React.FunctionComponent<StoreProps> = ({ store, storeNumber,
             })}
         >
             <AlertTitle className="text-left">
-                Store no. {storeNumber}
+                Store {numberToEmoji(storeNumber)}
             </AlertTitle>
             <AlertDescription className="tracking-wider overflow-y-auto px-4 pt-4">
                 <pre

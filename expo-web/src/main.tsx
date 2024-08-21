@@ -45,7 +45,8 @@ const App = () => {
         })
     }, [client])
 
-    return <Devtools />
+    // @ts-ignore
+    return <Devtools isFullscreen />
 }
 
 createRoot(document.getElementById('root')!).render(<App />)

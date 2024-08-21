@@ -65,3 +65,7 @@
     min-height: 100px;
     width: calc(100vw - 32px);
 }
+
+.devtools-fullscreen {
+    height: 100vh;
+}

@@ -1,13 +1,13 @@
 import './index.css'
 import { Editor } from 'features/editor'
 import { Button, Favicon, Label, ResizableHandle, ResizablePanel, ResizablePanelGroup, TooltipProvider } from 'lib/components'
-import { getStores } from 'lib/utils'
+import { cn, getStores } from 'lib/utils'
 import { Minus } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
 import { Store } from './Store'
 
-export const Devtools: React.FunctionComponent = () => {
-    const [isOpened, setIsOpened] = useState(false)
+export const Devtools: React.FunctionComponent = ({ isFullscreen }: { isFullscreen?: boolean }) => {
+    const [isOpened, setIsOpened] = useState(Boolean(isFullscreen))
     const [stores, setStores] = useState(getStores())
     const resizeRef = useRef<HTMLDivElement>(null)
     const [activeStore, setActiveStore] = useState<number>()
@@ -34,7 +34,7 @@ export const Devtools: React.FunctionComponent = () => {
     const handleMouseDown: React.MouseEventHandler<HTMLDivElement> = (
         mouseDownEvent,
     ) => {
-        if (!resizeRef.current) {
+        if (!resizeRef.current || isFullscreen) {
             return
         }
 
@@ -70,8 +70,19 @@ export const Devtools: React.FunctionComponent = () => {
                     )
                     : (
                         <React.Fragment>
-                            <div key="devtools" className="devtools-resizable flex flex-col rounded-xl bg-background" ref={resizeRef}>
-                                <div onMouseDown={handleMouseDown} className="w-full -translate-y-2 h-4 cursor-ns-resize" />
+                            <div
+                                key="devtools"
+                                className={cn('devtools-resizable flex flex-col rounded-xl bg-background', {
+                                    'devtools-fullscreen': isFullscreen,
+                                })}
+                                ref={resizeRef}
+                            >
+                                <div
+                                    onMouseDown={handleMouseDown}
+                                    className={cn('w-full -translate-y-2 h-4', {
+                                        'cursor-ns-resize': !isFullscreen,
+                                    })}
+                                />
                                 <div className="flex items-center px-4 pb-4 justify-between">
                                     <div className="flex items-center gap-2">
                                         <Favicon className="w-8 h-8" />
@@ -79,12 +90,14 @@ export const Devtools: React.FunctionComponent = () => {
                                             stan-js devtools
                                         </Label>
                                     </div>
-                                    <Button size="icon" onClick={() => setIsOpened(false)}>
-                                        <Minus className="h-4 w-4" />
-                                    </Button>
+                                    {!isFullscreen && (
+                                        <Button size="icon" onClick={() => setIsOpened(false)}>
+                                            <Minus className="h-4 w-4" />
+                                        </Button>
+                                    )}
                                 </div>
                                 <ResizablePanelGroup className="resize flex-grow" direction="horizontal">
-                                    <ResizablePanel className="px-4 pb-4 grid grid-cols-1 gap-4 auto-rows-fr">
+                                    <ResizablePanel className="px-4 pb-4 flex flex-col gap-4" style={{ overflow: 'auto' }}>
                                         {Object.values(stores).map((store, index) => (
                                             <Store
                                                 key={index}
