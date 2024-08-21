@@ -56,13 +56,13 @@ export const Devtools: React.FunctionComponent = () => {
             <div className="fixed bottom-4 left-4">
                 {!isOpened
                     ? (
-                        <div className="cursor-pointer" onClick={() => setIsOpened(true)}>
+                        <div key="favicon" className="cursor-pointer" onClick={() => setIsOpened(true)}>
                             <Favicon />
                         </div>
                     )
                     : (
                         <React.Fragment>
-                            <div className="devtools-resizable flex flex-col rounded-xl bg-background" ref={resizeRef}>
+                            <div key="devtools" className="devtools-resizable flex flex-col rounded-xl bg-background" ref={resizeRef}>
                                 <div onMouseDown={handleMouseDown} className="w-full -translate-y-2 h-4 cursor-ns-resize" />
                                 <div className="flex items-center px-4 pb-4 justify-between">
                                     <div className="flex items-center gap-2">
