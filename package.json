@@ -42,7 +42,8 @@
     "peerDependencies": {
         "react": ">=18",
         "react-dom": ">=18",
-        "expo": ">=51"
+        "expo": ">=51",
+        "stan-js": ">=1.5.0"
     },
     "peerDependenciesMeta": {
         "expo": {

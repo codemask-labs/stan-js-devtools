@@ -17,6 +17,9 @@
 
 ## 📦 Installation
 
+> [!WARNING]  
+> You need stan-js >= 1.5.0 to use devtools
+
 ```bash
 npm i -D stan-js-devtools
 yarn add -D stan-js-devtools
