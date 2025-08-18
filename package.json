@@ -1,7 +1,7 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.0-beta-1",
+    "version": "1.0.0",
     "description": "Devtools for stan-js",
     "keywords": [
         "state",
@@ -20,9 +20,9 @@
     "type": "module",
     "exports": {
         ".": {
+            "react-native": "./build/rn/index.cjs",
             "import": "./build/index.js",
-            "require": "./build/index.cjs",
-            "react-native": "./build/rn/index.cjs"
+            "default": "./build/index.cjs"
         },
         "./index.css": "./build/index.css"
     },
@@ -76,6 +76,7 @@
         "postcss": "8.4.41",
         "tailwindcss": "3.4.10",
         "tsup": "8.2.4",
-        "typescript": "5.5.4"
+        "typescript": "5.5.4",
+        "expo": "53.0.20"
     }
 }
