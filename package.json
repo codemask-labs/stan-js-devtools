@@ -1,7 +1,7 @@
 {
     "name": "stan-js-devtools",
     "private": false,
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Devtools for stan-js",
     "keywords": [
         "state",
@@ -20,7 +20,7 @@
     "type": "module",
     "exports": {
         ".": {
-            "react-native": "./build/rn/index.cjs",
+            "react-native": "./build/expo/index.cjs",
             "import": "./build/index.js",
             "default": "./build/index.cjs"
         },
